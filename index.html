@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国有嘻哈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/index.css"rel="stylesheet" type="text/css">
+    <link href="css/animate.css"rel="stylesheet"type="text/css">
+    <script src="js/jquery-2.2.4.js"></script>
+</head>
+<body>
+    <div class="index-box">
+        <div class="animated left-img bounceInDown"></div>
+        <div class="animated right-img bounceInDown"></div>
+        <div class="animated flash bg-1"></div>
+        <div class="title-box animated pulse">
+            <h1>唯一指定冠军</h1>
+        </div>
+        <div style="position: absolute;right: 70px;top:10px">
+            <audio autoplay loop id="music">
+                <source src="mp3/pgone-zhonger.mp3" type="audio/mp3">
+                您的浏览器不支持 audio 元素。
+            </audio>
+            <button class="animated pulse1"id="song"style="position: absolute;z-index: 3;background: transparent;border: none;cursor: pointer;" onclick="song();">
+                <img src="images/song.png"width="24">
+            </button>
+        </div>
+        <div class="center-font animated fadeIn">
+            <div class="light animated">
+                <img src="images/light_03.png"width="100%">
+            </div>
+            <div class="animated flip pg">
+                <img src="images/pgone_03.png"width="100%">
+            </div>
+            <div class="bottom-text">
+                <h4 class="animated tada">The Rap of China</h4>
+                <h5 class="animated flipInY">2017SUMMER</h5>
+            </div>
+            <div>
+                <a href="http://www.iqiyi.com/v_19rr81b36k.html" target="_blank" class="rainbow-button" title="了解更多"></a>
+            </div>
+            <div class="bottom-item">
+                <a target="_blank"href="http://weibo.com/dotacom">不是你心目中的冠军，联系我更改结果</a>
+            </div>
+        </div>
+        <div class="bottom-left">
+            <img src="images/bottomleft_03.png"width="70">
+        </div>
+    </div>
+    <div id="test" style="position:fixed;top:0px;z-index:1;"></div>
+</body>
+<script src="js/mousefollow.js"></script>
+<script src="js/respond.js"></script>
+<script src="js/sketch.min.js"></script>
+<script language="JavaScript">
+    function getOs(){
+        var OsObject = "";
+        if(navigator.userAgent.indexOf("MSIE")>0) {
+            return "MSIE";
+        }
+        if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
+            $.getScript('js/mousefollow.js');
+            return "Firefox";
+        }
+        if(isSafari=navigator.userAgent.indexOf("Safari")>0) {
+            $.getScript('js/mousefollow.js');
+            return "Safari";
+        }
+        if(isCamino=navigator.userAgent.indexOf("Camino")>0){
+            $.getScript('js/mousefollow.js');
+            return "Camino";
+        }
+        if(isMozilla=navigator.userAgent.indexOf("Gecko/")>0){
+            $.getScript('js/mousefollow.js');
+            return "Gecko";
+        }
+    }
+    getOs();
+</script>
+<script>
+    function song(){
+        var audio = document.getElementById('music');
+        if(audio.paused){
+            audio.play();//audio.play();// 播放
+        }
+        else{
+            audio.pause();// 暂停
+        }
+    }
+    setInterval(function(){
+        $(".light").fadeOut(1500).fadeIn(1500);
+    },400);
+</script>
+</html>

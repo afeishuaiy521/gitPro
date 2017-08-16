@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box; }
+  *:before, *:after {
+    box-sizing: border-box; }
+
+body {
+  line-height: 1.8;
+  color: #666; }
+
+
+a {
+  text-decoration: none;
+  color: #9999ff; }
+
+.site-content {
+  width: 990px;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase; }
+
+
+.movie {
+  float: left; }
+.movie__card{
+  height: 100%;
+}
+.movie__card1{
+  position: relative;
+  min-width: 990px;
+  min-height: 550px;
+}
+    .movie__card.hover-in {
+      transition: .3s ease-out; }
+    .movie__card.hover-out {
+      transition: .3s ease-in; }
+  .movie [class*="layer"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px; }
+  .movie .layer-1 {
+    background-image: url(../images/deadpool-bg.png);
+    background-size: cover; }
+  .movie .layer-2 {
+    background-image: url(../images/deadpool.png);
+    background-size: cover;
+    -webkit-transform: translateZ(30px);
+            transform: translateZ(30px); }
+  .movie .layer-3 {
+    background-image: url(../images/deadpool-title.png);
+    background-size: cover;
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px); }
+  .movie .shine {
+    border-radius: 10px; }

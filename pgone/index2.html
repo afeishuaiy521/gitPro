@@ -10,27 +10,19 @@
 </head>
 <body>
         <div class="index-box">
+            <div class="hole"></div>
             <div class="animated left-img bounceInDown"></div>
             <div class="animated right-img bounceInDown"></div>
             <div class="animated flash bg-1"></div>
-            <div class="title-box1">
-                <div class="title-box">
-                    <p data-text="唯一指定冠军">唯一指定冠军</p>
-                    <!--<h1 data-text="唯一指定冠军">唯一指定冠军</h1>-->
-                </div>
+            <div class="title-box animated pulse">
+                <h1>唯一指定冠军</h1>
             </div>
-
-            <div style="position: absolute;right: 70px;top:50px;z-index: 5">
+            <div style="position: absolute;right: 70px;top:10px">
                 <audio autoplay loop id="music">
                     <source src="mp3/pgone-zhonger.mp3" type="audio/mp3">
                     您的浏览器不支持 audio 元素。
                 </audio>
-                    <div id="playBtn"class="loader loader-7"onclick="song();"style="cursor: pointer">
-                        <div class="line line1"></div>
-                        <div class="line line2"></div>
-                        <div class="line line3"></div>
-                    </div>
-                <button class="animated pulse1"id="song"style="right: 10px;top: 2px;display:none;position: absolute;z-index: 3;background: transparent;border: none;cursor: pointer;" onclick="song();">
+                <button class="animated pulse1"id="song"style="position: absolute;z-index: 3;background: transparent;border: none;cursor: pointer;" onclick="song();">
                     <img src="images/song.png"width="24">
                 </button>
             </div>
@@ -39,22 +31,14 @@
                     <img src="images/light_03.png"width="100%">
                 </div>
                 <div class="animated flip pg">
-                    <div class="movie">
-                        <div class="movie__card">
-                            <img src="images/pgone_03.png"width="100%">
-                        </div>
-                    </div>
+                    <img src="images/pgone_03.png"width="100%">
                 </div>
                 <div class="bottom-text">
                     <h4 class="animated tada">The Rap of China</h4>
                     <h5 class="animated flipInY">2017SUMMER</h5>
                 </div>
                 <div>
-                    <a href="#0" class="bar-anchor">
-                        <span>了解更多</span>
-                        <div class="transition-bar"></div>
-                    </a>
-                   <!-- <a href="http://www.iqiyi.com/v_19rr81b36k.html" target="_blank" class="rainbow-button" title="了解更多"></a>-->
+                    <a href="http://www.iqiyi.com/v_19rr81b36k.html" target="_blank" class="rainbow-button" title="了解更多"></a>
                 </div>
                 <div class="bottom-item">
                     <a target="_blank"href="http://weibo.com/dotacom">不是你心目中的冠军，联系我更改结果</a>
@@ -101,6 +85,12 @@
     getOs();
 </script>-->
 <script>
+    $(document).on("mousemove", function(event) {
+        $(".hole").css({
+            "top": event.pageY,
+            "left": event.pageX
+        });
+    });
     function song(){
         var audio = document.getElementById('music');
         if(audio.paused){
@@ -113,20 +103,5 @@
     setInterval(function(){
         $(".light").fadeOut(1500).fadeIn(1500);
     },400);
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#playBtn").click(function(){
-            $(this).hide();
-            $("#song").show();
-        });
-        $("#song").click(function(){
-            $(this).hide();
-            $("#playBtn").show();
-        });
-        $(".movie").hover3d({
-            selector: ".movie__card",
-        });
-    });
 </script>
 </html>

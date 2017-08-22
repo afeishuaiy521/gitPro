@@ -86,8 +86,9 @@
     background: -webkit-linear-gradient(top,#e6c276 10%, #532607 , #a96818);
     -webkit-background-clip: text;         /* 规定背景的划分区域 */
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #ffcc7b;
-    animation: wavemover 10s infinite alternate linear;
+    -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+    animation: neon5 1.5s ease-in-out infinite alternate;
 }
 .light{
     position: absolute;
@@ -163,10 +164,12 @@ title阴影特效*/
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 5px #fff, 0 0 5px #000, 0 0 15px #fff, 0 0 40px #ffcc7b, 0 0 70px #ffcc7b;
-    border-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-    animation: textColor 5s ease infinite;
+    border-image: linear-gradient(90deg, transparent 0%, transparent 49%);
+    -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+    animation: neon5 1.5s ease-in-out infinite alternate;
 }
-.title-box:after {
+/*.title-box:after {
     position: absolute;
     content: "";
     left: 0;
@@ -175,11 +178,13 @@ title阴影特效*/
     width: 100%;
     margin: 0 auto;
     -webkit-filter: blur(5vw);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#ffb50f',endColorStr='#8d0fff',gradientType='1');
     background: linear-gradient(270deg, #ffb50f, #8d0fff);
+    background: -moz-linear-gradient(270deg, #ffb50f, #8d0fff);
     background-size: 200% 200%;
     opacity: .2;
     animation: animateGlow 5s ease infinite;
-}
+}*/
 .title-box h1 {
     margin: auto;
     color: #e1a050;
@@ -196,13 +201,13 @@ title阴影特效*/
     color: #e1a050;
     text-align: center;
     transform: scaleX(var(--scale, 1));
-    animation: glitch-p 11s infinite alternate;
     font-size:45px;
     font-weight: normal;
     font-family: "ruiyuan";
     text-shadow: 0px 0px 15px #ffcc7b;
     letter-spacing:10px;
     padding: 7px;
+    cursor: pointer;
 }
 .gelatine {
     animation: gelatine 0.5s infinite;
@@ -310,10 +315,17 @@ a {
         top: 50px;
     }
 }
-/*
+
 @media only screen and (max-width: 320px) {
+    .bottom-item{
+        padding-top: 15px;
+    }
+    .bottom-left{
+        bottom: 40px;
+        left: 15%;
+    }
 }
-*/
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 ::-moz-selection {
     color: #FFF;
@@ -372,145 +384,6 @@ a {
     }
     100% {
         height: 75%;
-    }
-}
-/*马赛克特效*/
-:root {
-    --f-size: 15;
-    --f-unit: 1vmin;
-    --f: calc(var(--f-size) * var(--f-unit));
-}
-
-
-
-.title-box p::before, p::after {
-    --top: 0;
-    --left: 0;
-    --v-height: 30%;
-    --n-tenth: calc(var(--f-size) * .1 * var(--top));
-    --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
-    --b-cut: calc(var(--t-cut) + var(--v-height));
-    content: attr(data-text);
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    transform: translateX(calc(var(--left) * 100%));
-    filter: drop-shadow(0 0 transparent);
-    text-shadow: calc(var(--left) * -3em) 0 0.02em lime, calc(var(--left) * -6em) 0 0.02em #ff00e1;
-    background-color: var(--bg);
-    clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut));
-}
-.title-box p::before {
-    animation: glitch-b 1.7s infinite alternate-reverse;
-}
-.title-box p::after {
-    animation: glitch-a 3.1s infinite alternate;
-}
-
-@keyframes glitch-p {
-    17% {
-        --scale: .87;
-    }
-    31% {
-        --scale: 1.1;
-    }
-    37% {
-        --scale: 1.3;
-    }
-    47% {
-        --scale: .91;
-    }
-    87% {
-        --scale: 1;
-    }
-}
-@keyframes glitch-a {
-    10%,30%,50%,70%,90% {
-        --top: 0;
-        --left: 0;
-    }
-    0% {
-        --v-height: 15%;
-    }
-    20% {
-        --left: .005;
-    }
-    40% {
-        --left: .01;
-        --v-height: 20%;
-        --top: 3;
-    }
-    60% {
-        --left: .03;
-        --v-height: 25%;
-        --top: 6;
-    }
-    80% {
-        --left: .07;
-        --v-height: 5%;
-        --top: 8;
-    }
-    100% {
-        --left: .083;
-        --v-height: 30%;
-        --top: 1;
-    }
-}
-@keyframes glitch-b {
-    10%,30%,50%,70%,90% {
-        --top: 0;
-        --left: 0;
-    }
-    0% {
-        --v-height: 15%;
-        --top: 10;
-    }
-    20% {
-        --left: -.005;
-    }
-    40% {
-        --left: -.01;
-        --v-height: 17%;
-        --top: 3;
-    }
-    60% {
-        --left: -.03;
-        --v-height: 35%;
-        --top: 6;
-    }
-    80% {
-        --left: -.07;
-        --v-height: 5%;
-        --top: 8;
-    }
-    100% {
-        --left: -.083;
-        --v-height: 30%;
-        --top: 1;
-    }
-}
-
-@keyframes animateGlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-@keyframes textColor {
-    0% {
-        color: #7e0fff;
-    }
-    50% {
-        color: #0fffc1;
-    }
-    100% {
-        color: #7e0fff;
     }
 }
 /*
@@ -589,4 +462,210 @@ btn动画*/
     -o-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
     -webkit-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
     transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+}
+@-webkit-keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #FF9900,
+        0 0 70px  #FF9900,
+        0 0 80px  #FF9900,
+        0 0 100px #FF9900,
+        0 0 150px #FF9900;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #FF9900,
+        0 0 35px #FF9900,
+        0 0 40px #FF9900,
+        0 0 50px #FF9900,
+        0 0 75px #FF9900;
+    }
+}
+
+@-moz-keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #FF9900,
+        0 0 70px  #FF9900,
+        0 0 80px  #FF9900,
+        0 0 100px #FF9900,
+        0 0 150px #FF9900;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #FF9900,
+        0 0 35px #FF9900,
+        0 0 40px #FF9900,
+        0 0 50px #FF9900,
+        0 0 75px #FF9900;
+    }
+}
+@keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px  #fff,
+        0 0 30px  #fff,
+        0 0 40px  #FF9900,
+        0 0 70px  #FF9900,
+        0 0 80px  #FF9900,
+        0 0 100px #FF9900,
+        0 0 150px #FF9900;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #FF9900,
+        0 0 35px #FF9900,
+        0 0 40px #FF9900,
+        0 0 50px #FF9900,
+        0 0 75px #FF9900;
+    }
+}
+@-moz-keyframes neon6 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #ff00de,
+        0 0 70px #ff00de,
+        0 0 80px #ff00de,
+        0 0 100px #ff00de,
+        0 0 150px #ff00de;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff00de,
+        0 0 35px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 75px #ff00de;
+    }
+}
+@keyframes neon6 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #ff00de,
+        0 0 70px #ff00de,
+        0 0 80px #ff00de,
+        0 0 100px #ff00de,
+        0 0 150px #ff00de;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff00de,
+        0 0 35px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 75px #ff00de;
+    }
+}
+@-webkit-keyframes neon6 {
+    from {
+        text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #ff00de,
+        0 0 70px #ff00de,
+        0 0 80px #ff00de,
+        0 0 100px #ff00de,
+        0 0 150px #ff00de;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff00de,
+        0 0 35px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 75px #ff00de;
+    }
+}
+
+.btn {
+    overflow: visible;
+    width: 30%;
+    margin: 10px auto;
+    font: inherit;
+    line-height: normal;
+    cursor: pointer;
+    -moz-user-select: text;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 15px 12px;
+    letter-spacing: 5px;
+    background-color: #fff;
+    color: #666;
+    border: 2px solid #666;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.btn::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+.btn--stripe {
+    overflow: hidden;
+    position: relative;
+}
+.btn--stripe:after {
+    content: '';
+    display: block;
+    height: 7px;
+    width: 100%;
+    background-image: -webkit-repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+    background-image: repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-top: 1px solid #666;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: 7px 7px;
+}
+.btn--stripe:hover {
+    background-color: #666;
+    color: #fff;
+    border-color: #000;
+}
+.btn--stripe:hover:after {
+    background-image: -webkit-repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+    background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+    border-top: 1px solid #000;
+    -webkit-animation: stripe-slide 12s infinite linear forwards;
+    animation: stripe-slide 12s infinite linear forwards;
+}
+@-webkit-keyframes stripe-slide {
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+@keyframes stripe-slide {
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
 }

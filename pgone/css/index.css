@@ -269,6 +269,11 @@ a {
     }
 }
 @media only screen and (max-width: 768px) {
+    .center-font1{
+        padding-top: 20%;
+    }
+}
+@media only screen and (max-width: 767px) {
     .title-box{
         width:80%;
         margin: 5px auto;
@@ -290,7 +295,7 @@ a {
     .center-font1{
         width: 320px;
         height: 144px;
-        padding-top: 10%;
+        padding-top: 15%;
     }
     .center-font1 h1{
         font-size: 90px;
@@ -307,12 +312,18 @@ a {
         height:30px;
     }
     .bottom-left {
-        bottom: 30px;
+        bottom: 10px;
         left: 10%;
         transform: translate(-50%);
     }
     #song{
         top: 50px;
+    }
+    .index-box{
+        overflow: auto;
+    }
+    .bg-1{
+        overflow: auto;
     }
 }
 @media only screen and (max-width: 360px) {
@@ -320,8 +331,14 @@ a {
         padding-top: 0px;
     }
     .bottom-left{
-        bottom: 40px;
+        bottom: 30px;
         left: 15%;
+    }
+    .index-box{
+        overflow: auto;
+    }
+    .bg-1{
+        overflow: auto;
     }
 }
 @media only screen and (max-width: 320px) {
@@ -329,8 +346,14 @@ a {
         padding-top: 15px;
     }
     .bottom-left{
-        bottom: 40px;
+        bottom: 12px;
         left: 15%;
+    }
+    .index-box{
+        overflow: auto;
+    }
+    .bg-1{
+        overflow: auto;
     }
 }
 

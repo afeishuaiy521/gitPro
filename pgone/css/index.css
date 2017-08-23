@@ -307,15 +307,23 @@ a {
         height:30px;
     }
     .bottom-left {
-        bottom: 0;
-        left: 50%;
+        bottom: 30px;
+        left: 10%;
         transform: translate(-50%);
     }
     #song{
         top: 50px;
     }
 }
-
+@media only screen and (max-width: 360px) {
+    .bottom-item{
+        padding-top: 0px;
+    }
+    .bottom-left{
+        bottom: 40px;
+        left: 15%;
+    }
+}
 @media only screen and (max-width: 320px) {
     .bottom-item{
         padding-top: 15px;

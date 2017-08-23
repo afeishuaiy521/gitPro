@@ -104,7 +104,7 @@
     position: relative;
 }
 .pg img{
-    width: 207px;
+    width: 100%;
 }
 .bottom-text{
     text-align: center;
